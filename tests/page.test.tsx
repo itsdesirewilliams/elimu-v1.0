@@ -14,7 +14,7 @@ describe("Homepage route", () => {
       within(header).getByRole("img", { name: /elimuboost wordmark/i })
     ).toHaveAttribute("src", expect.stringContaining("wordmark-green.png"));
     expect(
-      screen.queryByRole("img", { name: "Elimu Boost Mark" })
+      screen.queryByRole("img", { name: "ElimuBoost Mark" })
     ).not.toBeInTheDocument();
     expect(
       screen.getByRole("heading", { level: 1, name: /master senior 4/i })

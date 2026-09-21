@@ -1,4 +1,4 @@
-﻿# ElimuBoost
+# ElimuBoost
 
 A modern, interactive, curriculum-based learning platform for students (South Sudan curriculum first). This context covers the product language; the current phase is the homepage MVP only.
 
@@ -7,19 +7,22 @@ A modern, interactive, curriculum-based learning platform for students (South Su
 ### Brand
 
 **ElimuBoost**:
-The product. A modern EdTech learning platform built around curriculum-based learning, practice, progress, and engagement.
-_Avoid_: "the LMS", "the portal", "e-learning site"
+The product. A modern EdTech learning platform built around curriculum-based learning, practice, progress, and engagement. One word, capital E and B.
+_Avoid_: "Elimu Boost" (with a space), "the LMS", "the portal", "e-learning site"
 
 **Mark**:
-The square ElimuBoost logo symbol (423Ã—433 asset, `mark - {color} v1.png`).
+The square ElimuBoost logo symbol (423×433 asset, `mark - {color} v1.png`). The Wordmark already includes the Mark, so the Mark is never rendered separately alongside it.
 _Avoid_: icon, symbol, logo (ambiguous with Wordmark)
 
 **Wordmark**:
-The horizontal "elimu-pr" text lockup (1560Ã—433 asset, `elimu-pr {color}.png`).
+The horizontal "elimu-pr" text lockup (1560×433 asset, `elimu-pr {color}.png`). The preferred single logo element in the header and footer.
 _Avoid_: logo (ambiguous with Mark)
 
 **Brand Green**:
 The ElimuBoost primary green, `#0A7E3D`, extracted from the brand assets.
+
+**Brand Green Deep**:
+The darker supporting shade `#075A2C`, derived from Brand Green. Used only where Brand Green itself is the large fill (the Final CTA section) to add depth; never as an independent accent.
 
 **Burgundy**:
 The restrained supporting accent color, `#7A1F2B`. Used for small accents only, never large fills.
@@ -27,7 +30,7 @@ The restrained supporting accent color, `#7A1F2B`. Used for small accents only, 
 ### Learning model
 
 **CSE**:
-The Certificate of Secondary Education â€” South Sudan's national examination sat at the end of Senior 4.
+The Certificate of Secondary Education — South Sudan's national examination sat at the end of Senior 4.
 _Avoid_: SSCE, final exam
 
 **Senior 4 (S4)**:
@@ -50,7 +53,7 @@ Experience points earned by learning and practicing; part of Gamification.
 Consecutive-day learning practice; part of Gamification.
 
 **Learning Loop**:
-The product philosophy: Learn â†’ Understand â†’ Practice â†’ Recall â†’ Test â†’ Review â†’ Improve.
+The product philosophy: Learn → Understand → Practice → Recall → Test → Review → Improve.
 
 ### Content honesty
 

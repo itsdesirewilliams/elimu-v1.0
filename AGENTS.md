@@ -1,4 +1,4 @@
-﻿# ElimuBoost
+# ElimuBoost
 
 ## Agent skills
 

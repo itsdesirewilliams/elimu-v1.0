@@ -5,6 +5,9 @@ import CoursesSection from "./sections/courses";
 import HowItWorksSection from "./sections/how-it-works";
 import ProductPreviewSection from "./sections/product-preview";
 import FeaturesSection from "./sections/features";
+import TestimonialsSection from "./sections/testimonials";
+import FinalCtaSection from "./sections/final-cta";
+import Footer from "./sections/footer";
 
 export default function Home() {
   return (
@@ -17,12 +20,10 @@ export default function Home() {
         <HowItWorksSection />
         <ProductPreviewSection />
         <FeaturesSection />
+        <TestimonialsSection />
+        <FinalCtaSection />
       </main>
-      <footer className="border-t border-neutral-200 bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-6 text-sm text-neutral-500">
-          © Elimu Boost
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

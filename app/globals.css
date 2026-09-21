@@ -2,6 +2,7 @@
 
 @theme {
   --color-brand: #0a7e3d;
+  --color-brand-deep: #075a2c;
   --color-burgundy: #7a1f2b;
   --font-heading: var(--font-anek), sans-serif;
   --font-body: var(--font-inter), sans-serif;

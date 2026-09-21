@@ -41,18 +41,18 @@ describe("Homepage route", () => {
   it("anchors the primary navigation to the page sections", () => {
     render(<Home />);
 
-    expect(screen.getByRole("link", { name: "Courses" })).toHaveAttribute(
+    const primaryNav = screen.getByRole("navigation", { name: "Primary" });
+
+    expect(within(primaryNav).getByRole("link", { name: "Courses" })).toHaveAttribute(
       "href",
       "#courses"
     );
-    expect(screen.getByRole("link", { name: "How It Works" })).toHaveAttribute(
-      "href",
-      "#how-it-works"
-    );
-    expect(screen.getByRole("link", { name: "Features" })).toHaveAttribute(
-      "href",
-      "#features"
-    );
+    expect(
+      within(primaryNav).getByRole("link", { name: "How It Works" })
+    ).toHaveAttribute("href", "#how-it-works");
+    expect(
+      within(primaryNav).getByRole("link", { name: "Features" })
+    ).toHaveAttribute("href", "#features");
     screen
       .getAllByRole("link", { name: "Start Learning" })
       .forEach((link) => {
@@ -250,5 +250,81 @@ describe("Course grid", () => {
       ).toHaveAttribute("href", "#product-preview");
     }
     expect(document.getElementById("product-preview")).not.toBeNull();
+  });
+});
+
+describe("Testimonials", () => {
+  it("renders placeholder student stories with course context and initials fallback", () => {
+    render(<Home />);
+
+    const section = screen.getByRole("region", {
+      name: "What Our Students Say",
+    });
+
+    for (const name of ["Awet Majok", "Deng Chol", "Nyachang Tir"]) {
+      expect(within(section).getByText(name)).toBeInTheDocument();
+    }
+    for (const initials of ["AM", "DC", "NT"]) {
+      expect(within(section).getByText(initials)).toBeInTheDocument();
+    }
+    for (const context of [
+      "Additional Mathematics S4",
+      "Physics S4",
+      "Biology S4",
+    ]) {
+      expect(within(section).getByText(context)).toBeInTheDocument();
+    }
+    expect(
+      within(section).getByText(/Illustrative student stories/i)
+    ).toBeInTheDocument();
+  });
+});
+
+describe("Final CTA", () => {
+  it("closes the page with the approved headline and both anchor CTAs", () => {
+    render(<Home />);
+
+    const section = screen.getByRole("region", { name: "Get started" });
+
+    expect(
+      within(section).getByRole("heading", {
+        level: 2,
+        name: "Your Next Level Starts Here.",
+      })
+    ).toBeInTheDocument();
+    expect(
+      within(section).getByRole("link", { name: "Start Learning" })
+    ).toHaveAttribute("href", "#courses");
+    expect(
+      within(section).getByRole("link", { name: "Explore Courses" })
+    ).toHaveAttribute("href", "#courses");
+  });
+});
+
+describe("Footer", () => {
+  it("carries the brand, section links, muted placeholders, and socials", () => {
+    render(<Home />);
+
+    const footer = screen.getByRole("contentinfo");
+
+    expect(
+      within(footer).getByRole("img", { name: /elimuboost wordmark/i })
+    ).toHaveAttribute("src", expect.stringContaining("wordmark-green.png"));
+    expect(
+      within(footer).getByRole("link", { name: "Courses" })
+    ).toHaveAttribute("href", "#courses");
+    expect(
+      within(footer).getByRole("link", { name: "How It Works" })
+    ).toHaveAttribute("href", "#how-it-works");
+    expect(
+      within(footer).getByRole("link", { name: "Features" })
+    ).toHaveAttribute("href", "#features");
+    for (const placeholder of ["Contact", "Privacy", "Terms"]) {
+      expect(within(footer).getByText(placeholder)).toBeInTheDocument();
+    }
+    for (const social of ["X", "Instagram", "Facebook", "WhatsApp"]) {
+      expect(within(footer).getByLabelText(`${social} placeholder`)).toBeInTheDocument();
+    }
+    expect(within(footer).getByText(/© ElimuBoost/)).toBeInTheDocument();
   });
 });

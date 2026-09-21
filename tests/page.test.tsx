@@ -100,3 +100,54 @@ describe("Mobile navigation", () => {
     ).not.toBeInTheDocument();
   });
 });
+
+describe("How It Works section", () => {
+  it("walks the four steps and communicates the learning loop", () => {
+    render(<Home />);
+
+    const section = screen.getByRole("region", { name: "How It Works" });
+
+    for (const step of ["Choose", "Learn", "Practice", "Master"]) {
+      expect(
+        within(section).getByRole("heading", { name: step })
+      ).toBeInTheDocument();
+    }
+    for (const stage of ["Understand", "Recall", "Test", "Review", "Improve"]) {
+      expect(within(section).getByText(stage)).toBeInTheDocument();
+    }
+    expect(within(section).getByText("01")).toBeInTheDocument();
+    expect(within(section).getByText("04")).toBeInTheDocument();
+    expect(within(section).getByText("The learning loop")).toBeInTheDocument();
+  });
+});
+
+describe("Feature grid", () => {
+  it("renders all eight features with concise descriptions", () => {
+    render(<Home />);
+
+    const section = screen.getByRole("region", { name: "Features" });
+
+    for (const name of [
+      "Interactive Learning",
+      "Practice",
+      "Quizzes",
+      "Flashcards",
+      "Progress Tracking",
+      "Gamification",
+      "Offline Learning",
+      "Curriculum-Based",
+    ]) {
+      expect(
+        within(section).getByRole("heading", { name })
+      ).toBeInTheDocument();
+    }
+    for (const description of [
+      /instead of skim/,
+      /curriculum-based questions/,
+      /build your streak/,
+      /topic by topic/,
+    ]) {
+      expect(within(section).getByText(description)).toBeInTheDocument();
+    }
+  });
+});

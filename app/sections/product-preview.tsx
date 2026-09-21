@@ -7,6 +7,7 @@ export default function ProductPreviewSection() {
 
   return (
     <section
+      id="product-preview"
       aria-label="Product Preview"
       className="scroll-mt-24 bg-white py-20 lg:py-24"
     >

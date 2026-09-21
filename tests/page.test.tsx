@@ -216,3 +216,39 @@ describe("Product preview", () => {
     expect(within(section).getByText("+40 XP")).toBeInTheDocument();
   });
 });
+
+describe("Course grid", () => {
+  it("renders the six curriculum-aligned Courses as product cards", () => {
+    render(<Home />);
+
+    const section = screen.getByRole("region", { name: "Courses" });
+
+    for (const title of [
+      "Additional Mathematics S4",
+      "Mathematics S4",
+      "Physics S4",
+      "Chemistry S4",
+      "Biology S4",
+      "History S4",
+    ]) {
+      expect(
+        within(section).getByRole("heading", { name: title })
+      ).toBeInTheDocument();
+    }
+
+    const cards = within(section).getAllByRole("listitem");
+    expect(cards).toHaveLength(6);
+    expect(within(section).getAllByText("Mathematics")).toHaveLength(2);
+    expect(within(section).getByText("Humanities")).toBeInTheDocument();
+    expect(within(section).getByText(/extended paper/)).toBeInTheDocument();
+    expect(within(section).getByText(/shaped the region/)).toBeInTheDocument();
+    for (const card of cards) {
+      expect(within(card).getByText(/Lessons/)).toBeInTheDocument();
+      expect(within(card).getByText(/Senior 4/)).toBeInTheDocument();
+      expect(
+        within(card).getByRole("link", { name: /Preview a Lesson/i })
+      ).toHaveAttribute("href", "#product-preview");
+    }
+    expect(document.getElementById("product-preview")).not.toBeNull();
+  });
+});

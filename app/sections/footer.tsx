@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+﻿import type { ComponentType } from "react";
 import Image from "next/image";
 import { footerContent } from "@/data/footer";
 
@@ -134,7 +134,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="inline-block py-1.5 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900 motion-reduce:transition-none"
+                      className="inline-block py-2.5 text-sm font-medium text-neutral-700 transition-colors hover:text-neutral-900 motion-reduce:transition-none"
                     >
                       {link.label}
                     </a>
@@ -150,7 +150,7 @@ export default function Footer() {
                 {placeholders.map((placeholder) => (
                   <li
                     key={placeholder}
-                    className="py-1.5 text-sm text-neutral-400"
+                    className="py-2.5 text-sm text-neutral-400"
                   >
                     {placeholder}
                   </li>

@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Elimu Boost",
-    short_name: "Elimu Boost",
+    name: "ElimuBoost",
+    short_name: "ElimuBoost",
     icons: [
       {
         src: "/android-chrome-192x192.png",

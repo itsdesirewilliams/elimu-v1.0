@@ -9,7 +9,7 @@ export default function ProductPreviewSection() {
     <section
       id="product-preview"
       aria-label="Product Preview"
-      className="scroll-mt-24 bg-white py-20 lg:py-24"
+      className="scroll-mt-24 overflow-hidden bg-white py-20 lg:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading eyebrow={eyebrow} title={title} intro={intro} />

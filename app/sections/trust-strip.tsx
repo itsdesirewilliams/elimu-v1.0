@@ -100,7 +100,7 @@ const icons: Record<(typeof trustClaims)[number], ComponentType<{ className: str
 export default function TrustStrip() {
   return (
     <section
-      aria-label="Why Elimu Boost"
+      aria-label="Why ElimuBoost"
       className="border-y border-neutral-200 bg-neutral-50"
     >
       <ul className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4 py-5 sm:justify-between sm:gap-x-6 sm:px-6">

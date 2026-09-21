@@ -43,19 +43,12 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-3" aria-label="Elimu Boost">
-          <Image
-            src="/mark-green.png"
-            alt="Elimu Boost Mark"
-            width={30}
-            height={31}
-            priority
-          />
+        <Link href="/" className="flex items-center" aria-label="ElimuBoost">
           <Image
             src="/wordmark-green.png"
-            alt="Elimu Boost wordmark"
-            width={110}
-            height={30}
+            alt="ElimuBoost wordmark"
+            width={120}
+            height={33}
             priority
           />
         </Link>

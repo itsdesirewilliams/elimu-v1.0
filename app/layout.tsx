@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Anek_Devanagari, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -12,8 +12,12 @@ const bodyFont = Inter({
   variable: "--font-inter",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0a7e3d",
+};
+
 export const metadata: Metadata = {
-  title: "Elimu Boost",
+  title: "ElimuBoost",
   description:
     "Interactive, curriculum-based learning for Senior 4 — built to get you CSE-ready.",
   icons: {

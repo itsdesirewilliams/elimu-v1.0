@@ -2,7 +2,7 @@ export const productPreview = {
   eyebrow: "Product preview",
   title: "Step through a real Lesson.",
   intro:
-    "This is a real Elimu Boost Lesson, walked through Step by Step — the way every course works. Click through it.",
+    "This is a real ElimuBoost Lesson, walked through Step by Step — the way every course works. Click through it.",
   course: "Mathematics S4",
   lessonTitle: "Solving Linear Equations",
   steps: [

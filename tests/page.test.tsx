@@ -5,15 +5,17 @@ import Home from "@/app/page";
 afterEach(cleanup);
 
 describe("Homepage route", () => {
-  it("renders without errors and shows the brand", () => {
+  it("renders the ElimuBoost wordmark as the single header logo", () => {
     render(<Home />);
 
+    const header = screen.getByRole("banner");
+    expect(within(header).getAllByRole("img")).toHaveLength(1);
     expect(
-      screen.getByRole("img", { name: /elimu boost wordmark/i })
+      within(header).getByRole("img", { name: /elimuboost wordmark/i })
     ).toHaveAttribute("src", expect.stringContaining("wordmark-green.png"));
     expect(
-      screen.getByRole("img", { name: /elimu boost mark/i })
-    ).toHaveAttribute("src", expect.stringContaining("mark-green.png"));
+      screen.queryByRole("img", { name: "Elimu Boost Mark" })
+    ).not.toBeInTheDocument();
     expect(
       screen.getByRole("heading", { level: 1, name: /master senior 4/i })
     ).toBeInTheDocument();

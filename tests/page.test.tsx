@@ -31,9 +31,11 @@ describe("Homepage route", () => {
     expect(
       screen.getByRole("link", { name: "See How It Works" })
     ).toHaveAttribute("href", "#how-it-works");
-    expect(screen.getByText(/Lesson \d+ of \d+/)).toBeInTheDocument();
-    expect(screen.getByText("+10 XP")).toBeInTheDocument();
-    expect(screen.getByText(/\d-day streak/)).toBeInTheDocument();
+
+    const heroSection = screen.getByRole("region", { name: "Hero" });
+    expect(within(heroSection).getByText(/Lesson \d+ of \d+/)).toBeInTheDocument();
+    expect(within(heroSection).getByText("+10 XP")).toBeInTheDocument();
+    expect(within(heroSection).getByText(/\d-day streak/)).toBeInTheDocument();
   });
 
   it("anchors the primary navigation to the page sections", () => {
@@ -149,5 +151,68 @@ describe("Feature grid", () => {
     ]) {
       expect(within(section).getByText(description)).toBeInTheDocument();
     }
+  });
+});
+
+describe("Product preview", () => {
+  it("opens the Solving Linear Equations Lesson on its first Step", () => {
+    render(<Home />);
+
+    const section = screen.getByRole("region", { name: "Product Preview" });
+
+    expect(
+      within(section).getByRole("heading", { level: 3, name: "Solving Linear Equations" })
+    ).toBeInTheDocument();
+    expect(within(section).getByText("2x + 4 = 14")).toBeInTheDocument();
+    expect(within(section).queryByText("2x = 10")).not.toBeInTheDocument();
+    expect(within(section).queryByText("x = 5")).not.toBeInTheDocument();
+    expect(within(section).getByText("Step 1 of 3")).toBeInTheDocument();
+    expect(within(section).getByText("+10 XP")).toBeInTheDocument();
+  });
+
+  it("reveals Steps progressively with back/forward, updating progress and XP", () => {
+    render(<Home />);
+
+    const section = screen.getByRole("region", { name: "Product Preview" });
+    const next = within(section).getByRole("button", { name: /next step/i });
+
+    fireEvent.click(next);
+
+    expect(within(section).getByText("2x = 10")).toBeInTheDocument();
+    expect(within(section).getByText("Step 2 of 3")).toBeInTheDocument();
+    expect(within(section).getByText("+20 XP")).toBeInTheDocument();
+
+    fireEvent.click(within(section).getByRole("button", { name: /back/i }));
+
+    expect(within(section).queryByText("2x = 10")).not.toBeInTheDocument();
+    expect(within(section).getByText("Step 1 of 3")).toBeInTheDocument();
+    expect(within(section).getByText("+10 XP")).toBeInTheDocument();
+
+    fireEvent.click(next);
+    fireEvent.click(next);
+
+    expect(within(section).getByText("x = 5")).toBeInTheDocument();
+    expect(within(section).getByText("Step 3 of 3")).toBeInTheDocument();
+    expect(within(section).getByText("+30 XP")).toBeInTheDocument();
+    expect(next).toBeDisabled();
+  });
+
+  it("presents the Your turn question and reveals the answer on click", () => {
+    render(<Home />);
+
+    const section = screen.getByRole("region", { name: "Product Preview" });
+    const next = within(section).getByRole("button", { name: /next step/i });
+    fireEvent.click(next);
+    fireEvent.click(next);
+
+    expect(within(section).getByText("Solve: 3x + 6 = 21")).toBeInTheDocument();
+    expect(within(section).queryByText("x = 7")).not.toBeInTheDocument();
+
+    fireEvent.click(
+      within(section).getByRole("button", { name: /reveal answer/i })
+    );
+
+    expect(within(section).getByText("x = 7")).toBeInTheDocument();
+    expect(within(section).getByText("+40 XP")).toBeInTheDocument();
   });
 });

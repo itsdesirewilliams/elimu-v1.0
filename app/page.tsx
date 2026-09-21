@@ -3,6 +3,7 @@ import Hero from "./sections/hero";
 import TrustStrip from "./sections/trust-strip";
 import CoursesSection from "./sections/courses";
 import HowItWorksSection from "./sections/how-it-works";
+import ProductPreviewSection from "./sections/product-preview";
 import FeaturesSection from "./sections/features";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <TrustStrip />
         <CoursesSection />
         <HowItWorksSection />
+        <ProductPreviewSection />
         <FeaturesSection />
       </main>
       <footer className="border-t border-neutral-200 bg-white">

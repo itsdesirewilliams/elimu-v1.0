@@ -109,7 +109,10 @@ export default function Hero() {
   const { eyebrow, headline, subline, primaryCta, secondaryCta } = hero;
 
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section
+      aria-label="Hero"
+      className="relative overflow-hidden bg-white"
+    >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-brand/[0.07] to-transparent"

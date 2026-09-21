@@ -220,7 +220,7 @@ describe("Product preview", () => {
 });
 
 describe("Course grid", () => {
-  it("renders the six curriculum-aligned Courses as product cards", () => {
+  it("renders the six curriculum-aligned Courses as title cards with thumbnails", () => {
     render(<Home />);
 
     const section = screen.getByRole("region", { name: "Courses" });
@@ -242,16 +242,58 @@ describe("Course grid", () => {
     expect(cards).toHaveLength(6);
     expect(within(section).getAllByText("Mathematics")).toHaveLength(2);
     expect(within(section).getByText("Humanities")).toBeInTheDocument();
-    expect(within(section).getByText(/extended paper/)).toBeInTheDocument();
-    expect(within(section).getByText(/shaped the region/)).toBeInTheDocument();
     for (const card of cards) {
       expect(within(card).getByText(/Lessons/)).toBeInTheDocument();
       expect(within(card).getByText(/Senior 4/)).toBeInTheDocument();
+      const thumbnail = card.querySelector("img");
+      expect(thumbnail).not.toBeNull();
+      expect(thumbnail).toHaveAttribute(
+        "src",
+        expect.stringContaining("/courses/")
+      );
       expect(
         within(card).getByRole("link", { name: /Preview a Lesson/i })
       ).toHaveAttribute("href", "#product-preview");
     }
     expect(document.getElementById("product-preview")).not.toBeNull();
+  });
+
+  it("shows short course descriptions and omits verbose ones", () => {
+    render(<Home />);
+
+    const section = screen.getByRole("region", { name: "Courses" });
+
+    expect(
+      within(section).getByText(/Mechanics, waves and electricity/)
+    ).toBeInTheDocument();
+    expect(
+      within(section).getByText(/Sources, essays and the events/)
+    ).toBeInTheDocument();
+    expect(
+      within(section).queryByText(/extended paper/)
+    ).not.toBeInTheDocument();
+    expect(
+      within(section).queryByText(/practice throughout/)
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders each course thumbnail from the course data model", () => {
+    render(<Home />);
+
+    const section = screen.getByRole("region", { name: "Courses" });
+
+    for (const thumbnail of [
+      "/courses/additional-mathematics.svg",
+      "/courses/mathematics.svg",
+      "/courses/physics.svg",
+      "/courses/chemistry.svg",
+      "/courses/biology.svg",
+      "/courses/history.svg",
+    ]) {
+      expect(
+        section.querySelector(`img[src$="${thumbnail}"]`)
+      ).not.toBeNull();
+    }
   });
 });
 

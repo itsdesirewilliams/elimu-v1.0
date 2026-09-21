@@ -184,7 +184,7 @@ export default function FeaturesSection() {
             return (
               <li
                 key={item.name}
-                className="rounded-2xl border border-neutral-200 bg-white p-6 transition-colors hover:border-brand/30 motion-reduce:transition-none"
+                className="rounded-xl border border-neutral-200 bg-white p-6 transition-colors hover:border-brand/30 motion-reduce:transition-none"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
                   <Icon className="h-5 w-5" />

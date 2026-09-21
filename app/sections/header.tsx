@@ -47,8 +47,8 @@ export default function Header() {
           <Image
             src="/wordmark-green.png"
             alt="ElimuBoost wordmark"
-            width={120}
-            height={33}
+            width={160}
+            height={44}
             priority
           />
         </Link>
@@ -68,7 +68,7 @@ export default function Header() {
         </nav>
         <a
           href="#courses"
-          className="hidden items-center rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:inline-flex"
+          className="hidden items-center rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:inline-flex"
         >
           Start Learning
         </a>
@@ -103,7 +103,7 @@ export default function Header() {
             <a
               href="#courses"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-brand/90"
+              className="mt-2 inline-flex items-center justify-center rounded-md bg-brand px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-brand/90"
             >
               Start Learning
             </a>

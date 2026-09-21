@@ -56,7 +56,7 @@ export default function HowItWorksSection() {
             {steps.map((step) => (
               <li
                 key={step.number}
-                className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"
+                className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm"
               >
                 <span className="font-heading text-3xl font-bold text-brand">
                   {step.number}
@@ -71,7 +71,7 @@ export default function HowItWorksSection() {
             ))}
           </ol>
         </div>
-        <div className="mt-10 rounded-2xl border border-brand/15 bg-brand/[0.04] p-6 sm:p-8">
+        <div className="mt-10 rounded-xl border border-brand/15 bg-brand/[0.04] p-6 sm:p-8">
           <div className="flex items-center justify-center gap-2">
             <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
               {loopLabel}

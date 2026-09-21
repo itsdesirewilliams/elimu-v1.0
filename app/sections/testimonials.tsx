@@ -16,7 +16,7 @@ export default function TestimonialsSection() {
           {items.map((testimonial) => (
             <li
               key={testimonial.name}
-              className="flex flex-col rounded-2xl border border-neutral-200 bg-neutral-50 p-6"
+              className="flex flex-col rounded-xl border border-neutral-200 bg-neutral-50 p-6"
             >
               <span
                 aria-hidden="true"

@@ -8,6 +8,7 @@ export const coursesSection = {
     {
       title: "Additional Mathematics S4",
       category: "Mathematics",
+      thumbnail: "/courses/additional-mathematics.svg",
       description:
         "Advanced algebra, calculus and statistics for the extended paper.",
       level: "Senior 4",
@@ -16,6 +17,7 @@ export const coursesSection = {
     {
       title: "Mathematics S4",
       category: "Mathematics",
+      thumbnail: "/courses/mathematics.svg",
       description: "Core algebra, geometry and trigonometry, built Step by Step.",
       level: "Senior 4",
       lessons: 16,
@@ -23,6 +25,7 @@ export const coursesSection = {
     {
       title: "Physics S4",
       category: "Physics",
+      thumbnail: "/courses/physics.svg",
       description: "Mechanics, waves and electricity through guided problems.",
       level: "Senior 4",
       lessons: 15,
@@ -30,6 +33,7 @@ export const coursesSection = {
     {
       title: "Chemistry S4",
       category: "Chemistry",
+      thumbnail: "/courses/chemistry.svg",
       description: "Reactions, bonding and organic chemistry with practice throughout.",
       level: "Senior 4",
       lessons: 14,
@@ -37,6 +41,7 @@ export const coursesSection = {
     {
       title: "Biology S4",
       category: "Biology",
+      thumbnail: "/courses/biology.svg",
       description: "Cells, genetics and ecology explained one Step at a time.",
       level: "Senior 4",
       lessons: 14,
@@ -44,6 +49,7 @@ export const coursesSection = {
     {
       title: "History S4",
       category: "Humanities",
+      thumbnail: "/courses/history.svg",
       description: "Sources, essays and the events that shaped the region.",
       level: "Senior 4",
       lessons: 12,

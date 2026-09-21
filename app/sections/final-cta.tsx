@@ -29,13 +29,13 @@ export default function FinalCtaSection() {
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href={primary.href}
-            className="inline-flex h-12 w-full items-center justify-center rounded-full bg-white px-8 text-base font-semibold text-brand shadow-sm transition-colors hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto motion-reduce:transition-none"
+            className="inline-flex h-12 w-full items-center justify-center rounded-md bg-white px-8 text-base font-semibold text-brand shadow-sm transition-colors hover:bg-neutral-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto motion-reduce:transition-none"
           >
             {primary.label}
           </a>
           <a
             href={secondary.href}
-            className="inline-flex h-12 w-full items-center justify-center rounded-full border border-white/50 px-8 text-base font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto motion-reduce:transition-none"
+            className="inline-flex h-12 w-full items-center justify-center rounded-md border border-white/50 px-8 text-base font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto motion-reduce:transition-none"
           >
             {secondary.label}
           </a>

@@ -42,7 +42,7 @@ export default function ProductPreviewCard() {
         aria-hidden="true"
         className="absolute -inset-6 rounded-[2rem] bg-brand/[0.05] blur-2xl"
       />
-      <div className="relative rounded-3xl border border-neutral-200 bg-white p-5 shadow-xl shadow-neutral-900/5 sm:p-7">
+      <div className="relative rounded-2xl border border-neutral-200 bg-white p-5 shadow-xl shadow-neutral-900/5 sm:p-7">
         <div className="flex items-start justify-between gap-3">
           <div>
             <span className="rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
@@ -107,7 +107,7 @@ export default function ProductPreviewCard() {
             type="button"
             onClick={() => setRevealedSteps((n) => Math.max(1, n - 1))}
             disabled={revealedSteps === 1}
-            className="inline-flex items-center rounded-full border border-neutral-300 bg-white px-5 py-2.5 text-sm font-semibold text-neutral-700 transition-colors hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
+            className="inline-flex items-center rounded-md border border-neutral-300 bg-white px-5 py-2.5 text-sm font-semibold text-neutral-700 transition-colors hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
           >
             {backLabel}
           </button>
@@ -117,7 +117,7 @@ export default function ProductPreviewCard() {
               setRevealedSteps((n) => Math.min(steps.length, n + 1))
             }
             disabled={lessonComplete}
-            className="inline-flex items-center rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
+            className="inline-flex items-center rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
           >
             {nextLabel}
           </button>
@@ -136,7 +136,7 @@ export default function ProductPreviewCard() {
               onClick={() => setAnswerRevealed(true)}
               aria-expanded={answerRevealed}
               disabled={answerRevealed}
-              className="mt-4 inline-flex items-center rounded-full border border-neutral-300 bg-white px-5 py-2 text-sm font-semibold text-neutral-800 transition-colors hover:border-brand/40 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
+              className="mt-4 inline-flex items-center rounded-md border border-neutral-300 bg-white px-5 py-2 text-sm font-semibold text-neutral-800 transition-colors hover:border-brand/40 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
             >
               {yourTurn.revealLabel}
             </button>

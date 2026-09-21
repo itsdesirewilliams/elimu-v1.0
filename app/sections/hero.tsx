@@ -42,7 +42,7 @@ function LessonCardMockup() {
       className="relative mx-auto mt-6 w-full max-w-sm lg:mt-0"
     >
       <div className="absolute -inset-8 rounded-[2.5rem] bg-brand/[0.06] blur-2xl" />
-      <div className="relative animate-float rounded-2xl border border-neutral-200 bg-white p-5 shadow-xl shadow-neutral-900/5 sm:p-6 motion-reduce:animate-none">
+      <div className="relative animate-float rounded-xl border border-neutral-200 bg-white p-5 shadow-xl shadow-neutral-900/5 sm:p-6 motion-reduce:animate-none">
         <div className="flex items-center justify-between gap-3">
           <span className="rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
             {mockup.course}
@@ -135,13 +135,13 @@ export default function Hero() {
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
             <a
               href={primaryCta.href}
-              className="inline-flex h-12 w-full items-center justify-center rounded-full bg-brand px-8 text-base font-semibold text-white shadow-sm shadow-brand/25 transition-colors hover:bg-brand/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center rounded-md bg-brand px-8 text-base font-semibold text-white shadow-sm shadow-brand/25 transition-colors hover:bg-brand/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:w-auto"
             >
               {primaryCta.label}
             </a>
             <a
               href={secondaryCta.href}
-              className="inline-flex h-12 w-full items-center justify-center rounded-full border border-neutral-300 bg-white px-8 text-base font-semibold text-neutral-800 transition-colors hover:border-brand/40 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center rounded-md border border-neutral-300 bg-white px-8 text-base font-semibold text-neutral-800 transition-colors hover:border-brand/40 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand sm:w-auto"
             >
               {secondaryCta.label}
             </a>

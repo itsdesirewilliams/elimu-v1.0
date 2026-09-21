@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import Image from "next/image";
 import { coursesSection } from "@/data/courses";
 import SectionHeading from "./section-heading";
 
@@ -93,41 +94,6 @@ function GlobeIcon({ className }: { className: string }) {
   );
 }
 
-function CapIcon({ className }: { className: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M22 10L12 5 2 10l10 5 10-5z" />
-      <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" />
-    </svg>
-  );
-}
-
-function BookIcon({ className }: { className: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-    </svg>
-  );
-}
-
 function ArrowIcon({ className }: { className: string }) {
   return (
     <svg
@@ -156,6 +122,8 @@ const icons: Record<
   Humanities: GlobeIcon,
 };
 
+const MAX_CARD_DESCRIPTION_CHARS = 60;
+
 export default function CoursesSection() {
   const { eyebrow, title, intro, cta, items } = coursesSection;
 
@@ -170,42 +138,51 @@ export default function CoursesSection() {
         <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
           {items.map((course) => {
             const Icon = icons[course.category];
+            const showDescription =
+              course.description.length <= MAX_CARD_DESCRIPTION_CHARS;
             return (
               <li
                 key={course.title}
-                className="flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 transition-colors hover:border-brand/30 motion-reduce:transition-none"
+                className="group flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white transition-colors hover:border-brand/30 motion-reduce:transition-none"
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                    <Icon className="h-5 w-5" />
+                <div className="relative aspect-[16/9] overflow-hidden bg-neutral-100">
+                  <Image
+                    src={course.thumbnail}
+                    alt=""
+                    width={800}
+                    height={450}
+                    unoptimized
+                    className="h-auto w-full transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="flex items-center gap-2">
+                    <Icon className="h-4 w-4 text-brand" />
+                    <span className="text-xs font-semibold uppercase tracking-wide text-brand">
+                      {course.category}
+                    </span>
                   </div>
-                  <span className="text-xs font-medium text-neutral-500">
-                    {course.category}
-                  </span>
+                  <h3 className="mt-2 font-heading text-lg font-semibold text-neutral-900">
+                    {course.title}
+                  </h3>
+                  {showDescription && (
+                    <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                      {course.description}
+                    </p>
+                  )}
+                  <div className="mt-4 flex items-center gap-2 text-xs font-medium text-neutral-500">
+                    <span>{course.level}</span>
+                    <span aria-hidden="true">·</span>
+                    <span>{course.lessons} Lessons</span>
+                  </div>
+                  <a
+                    href={cta.href}
+                    className="mt-4 inline-flex items-center justify-center gap-1.5 rounded-md border border-neutral-300 bg-white px-4 py-2 text-sm font-semibold text-neutral-800 transition-colors hover:border-brand/40 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand motion-reduce:transition-none"
+                  >
+                    {cta.label}
+                    <ArrowIcon className="h-4 w-4" />
+                  </a>
                 </div>
-                <h3 className="mt-4 font-heading text-lg font-semibold text-neutral-900">
-                  {course.title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-neutral-600">
-                  {course.description}
-                </p>
-                <div className="mt-4 flex items-center gap-4 border-t border-neutral-100 pt-4 text-xs font-medium text-neutral-500">
-                  <span className="flex items-center gap-1.5">
-                    <CapIcon className="h-3.5 w-3.5" />
-                    {course.level}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <BookIcon className="h-3.5 w-3.5" />
-                    {course.lessons} Lessons
-                  </span>
-                </div>
-                <a
-                  href={cta.href}
-                  className="mt-4 inline-flex items-center justify-center gap-1.5 rounded-full border border-neutral-300 bg-white px-4 py-2 text-sm font-semibold text-neutral-800 transition-colors hover:border-brand/40 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand motion-reduce:transition-none"
-                >
-                  {cta.label}
-                  <ArrowIcon className="h-4 w-4" />
-                </a>
               </li>
             );
           })}
